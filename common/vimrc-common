@@ -1,0 +1,45 @@
+"BEGIN_COMMON
+execute pathogen#infect()
+
+syntax on
+filetype indent on
+
+let mapleader = ','
+
+set background=dark
+"colorscheme ir_black 
+colorscheme badwolf 
+
+set hlsearch
+
+set tabstop=4
+
+"softabstop is the number of spaces a tab counts for when editing. So this value is the number of spaces that is inserted when you hit <TAB> and also the number of spaces that are removed when you backspace
+set softtabstop=4
+
+"tabs are spaces
+set expandtab
+
+set showcmd
+set cursorline
+
+set modeline
+set ignorecase
+set smartcase
+set showmatch
+set smartindent
+set fileencodings=utf-8
+
+nnoremap <leader>u :GundoToggle<CR>
+nnoremap <leader><space> :nohlsearch<CR>
+
+noremap _ VXkP
+noremap - VXp 
+inoremap <c-d> <Esc>ddi
+
+nnoremap <c-l> v$hd
+nnoremap <c-h> v$0d
+
+"Have Vim jump to the last position when reopening a file
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
+"END_COMMON
