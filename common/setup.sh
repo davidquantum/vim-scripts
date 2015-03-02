@@ -4,7 +4,7 @@
 DIR=$( pushd "$( dirname "$0" )" &>/dev/null && pwd && popd &>/dev/null)
 source $DIR/../env.sh
 
-TEMPFILE=/tmp/vimrcexisting.tmp
+TEMPFILE=$TMPDIR/vimrcexisting.tmp
 VIMRC2=~/.vimrc2
 AUTOLOAD=~/.vim/autoload
 
@@ -41,11 +41,21 @@ mkdir -p $AUTOLOAD
 pushd $AUTOLOAD &>/dev/null
 
 echo "Creating pathogen autoload"
-rm -f pathogen.vim
+#rm -f pathogen.vim
+if mv pathogen.vim $TMPDIR
+then
+        PATHOGENMOVED=1
+fi
+
 if wget https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 then
     echo $DONE
 else
     echo $FAILED 
+    if [ $PATHOGENMOVED ]
+    then
+            mv $TMPDIR/pathogen.vim .
+            echo "Restored pathogen.vim from $TMPDIR $DONE"
+    fi
 fi
 popd &>/dev/null

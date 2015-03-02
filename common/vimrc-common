@@ -8,7 +8,6 @@ let mapleader = ','
 
 set background=dark
 "colorscheme ir_black 
-colorscheme badwolf 
 
 set hlsearch
 

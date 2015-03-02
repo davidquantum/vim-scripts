@@ -4,10 +4,16 @@ source $DIR/../env.sh
 
 if [ -z $1 ]; then
         echo "Setting up default (`cat default`) color scheme"
-        DEFAULT="setup-`cat default`.sh"
+        SCHEME=`cat default`
 else
         echo "Setting up $1 color scheme"
-        DEFAULT="setup-$1.sh"
+        SCHEME=$1
 fi
-echo "Color scheme setup $DONE"
+
+DEFAULT="setup-$SCHEME.sh"
 ./$DEFAULT
+
+echo "Color scheme setup $DONE"
+sed -i '' "/END_COMMON/a\\
+colorscheme $SCHEME\\
+" $VIMRCDST
