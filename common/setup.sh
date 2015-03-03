@@ -7,7 +7,6 @@ source $DIR/../env.sh
 TEMPFILE=$TMPDIR/vimrcexisting.tmp
 VIMRC2=~/.vimrc2
 AUTOLOAD=~/.vim/autoload
-BUNDLE=~/.vim/bundle
 
 echo "Saving old configuration to $TEMPFILE"
 echo "\"OLD CONFIGURATION as of `date`" 1>$TEMPFILE
@@ -54,6 +53,4 @@ popd &>/dev/null
 
 echo "Initializing bundle"
 mkdir -p $BUNDLE
-
-
 
