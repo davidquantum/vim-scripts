@@ -1,6 +1,6 @@
 #!/bin/bash
 VIMRC=~/.vimrc
-VIMRCDST=~/.vimrc2
+VIMRCDST=~/.vimrc
 TMPDIR=/tmp/tmpvimfiles
 BUNDLE=~/.vim/bundle
 

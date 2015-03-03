@@ -4,37 +4,22 @@
 DIR=$( pushd "$( dirname "$0" )" &>/dev/null && pwd && popd &>/dev/null)
 source $DIR/../env.sh
 
-TEMPFILE=$TMPDIR/vimrcexisting.tmp
-VIMRC2=~/.vimrc2
 AUTOLOAD=~/.vim/autoload
-
-echo "Saving old configuration to $TEMPFILE"
-echo "\"OLD CONFIGURATION as of `date`" 1>$TEMPFILE
-while read -r line
-do
-       echo "\"$line" 1>>$TEMPFILE
-done < $VIMRC 
-echo $DONE
 
 # Go to script directory
 pushd $DIR &>/dev/null
-
-rm -rf $VIMRC2
+storetobackup "$VIMRC"
+rm -rf $VIMRCDST
 FILES="vimrc-*"
 for f in $FILES
 do
-    echo "Copying $f to $VIMRC2"
-    cat $f 1>>$VIMRC2
+    echo "Copying $f to $VIMRCDST"
+    cat $f 1>>$VIMRCDST
     echo $DONE 
 done
 
 # Leave script directory
 popd &>/dev/null
-
-echo "Appending commented out old configuration to $VIMRC2"
-cat $TEMPFILE 1>>$VIMRC2 
-rm -rf $TEMPFILE
-echo $DONE
 
 
 mkdir -p $AUTOLOAD

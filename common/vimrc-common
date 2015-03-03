@@ -3,6 +3,7 @@ execute pathogen#infect()
 
 syntax on
 filetype indent on
+filetype plugin on
 
 let mapleader = ','
 
@@ -30,11 +31,12 @@ set smartindent
 set fileencodings=utf-8
 
 nnoremap <leader>u :GundoToggle<CR>
-nnoremap <leader><space> :nohlsearch<CR>
+nnoremap <leader>n :nohlsearch<CR>
 
 noremap _ VXkP
 noremap - VXp 
 inoremap <c-d> <Esc>ddi
+inoremap jj <Esc>
 
 nnoremap <c-l> v$hd
 nnoremap <c-h> v$0d
