@@ -7,6 +7,7 @@ source $DIR/../env.sh
 TEMPFILE=$TMPDIR/vimrcexisting.tmp
 VIMRC2=~/.vimrc2
 AUTOLOAD=~/.vim/autoload
+BUNDLE=~/.vim/bundle
 
 echo "Saving old configuration to $TEMPFILE"
 echo "\"OLD CONFIGURATION as of `date`" 1>$TEMPFILE
@@ -42,7 +43,7 @@ pushd $AUTOLOAD &>/dev/null
 
 echo "Creating pathogen autoload"
 storetobackup pathogen.vim
-if wget https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vimx
+if wget https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 then
     echo $DONE
 else
@@ -50,3 +51,9 @@ else
     restorefrombackup pathogen.vim "`pwd`"
 fi
 popd &>/dev/null
+
+echo "Initializing bundle"
+mkdir -p $BUNDLE
+
+
+
