@@ -7,11 +7,12 @@ COLORS=~/.vim/colors
 
 mkdir -p $COLORS
 pushd $COLORS
-rm -f badwolf.vim
+storetobackup badwolf.vim
 if wget https://raw.githubusercontent.com/sjl/badwolf/master/colors/badwolf.vim
 then
-        echo "Copied badwolf.vim $DONE"
+        echo "$DONE"
 else
-        echo "$FAILED to copy badwolf.vim"
+        echo "$FAILED"
+        restorefrombackup badwolf.vim "`pwd`"
 fi
 popd

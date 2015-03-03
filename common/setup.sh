@@ -41,21 +41,12 @@ mkdir -p $AUTOLOAD
 pushd $AUTOLOAD &>/dev/null
 
 echo "Creating pathogen autoload"
-#rm -f pathogen.vim
-if mv pathogen.vim $TMPDIR
-then
-        PATHOGENMOVED=1
-fi
-
-if wget https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+storetobackup pathogen.vim
+if wget https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vimx
 then
     echo $DONE
 else
     echo $FAILED 
-    if [ $PATHOGENMOVED ]
-    then
-            mv $TMPDIR/pathogen.vim .
-            echo "Restored pathogen.vim from $TMPDIR $DONE"
-    fi
+    restorefrombackup pathogen.vim "`pwd`"
 fi
 popd &>/dev/null
