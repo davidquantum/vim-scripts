@@ -5,12 +5,7 @@ source $DIR/../../env.sh
 
 echo "Installing Omnisharp.net"
 pushd $BUNDLE &>/dev/null
-if [ -d "omnisharp-vim" ];
-then
-        echo "omnisharp-vim already exists. Do you want to get the latest [y/n]?"
-        read -n 1 YESNO 
-fi
-
+checkinstall "omnisharp-vim"
 if [ -z $YESNO ] || [ $YESNO == "y" ]; then
         storetobackup omnisharp-vim
         git clone https://github.com/OmniSharp/omnisharp-vim.git

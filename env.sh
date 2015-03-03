@@ -15,6 +15,8 @@ mkdir -p $TEMPDIR
 
 function storetobackup {
     echo "Backing up $1 to $TMPDIR"
+    rm -rf $TMPDIR/$1
+
     if mv "$1" $TMPDIR
     then
             echo "$DONE"
@@ -33,3 +35,12 @@ function restorefrombackup {
     fi
 }
     
+function checkinstall {
+    if [ -d "$1" ];
+    then
+            echo "$1 already exists. Do you want to get the latest [y/n]?"
+            read -n 1 YESNO 
+    else
+            YESNO="n"
+    fi
+}
