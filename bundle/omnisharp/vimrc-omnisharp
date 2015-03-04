@@ -83,7 +83,7 @@ set updatetime=500
 set cmdheight=2
 
 " Contextual code actions (requires CtrlP)
-" nnoremap <leader><space> :OmniSharpGetCodeActions<cr>
+nnoremap <leader><space> :OmniSharpGetCodeActions<cr>
 " Run code actions with text selected in visual mode to extract method
 " vnoremap <leader><space> :call OmniSharp#GetCodeActions('visual')<cr>
 

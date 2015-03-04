@@ -41,6 +41,6 @@ function checkinstall {
             echo "$1 already exists. Do you want to get the latest [y/n]?"
             read -n 1 YESNO 
     else
-            YESNO="n"
+            YESNO="y"
     fi
 }
