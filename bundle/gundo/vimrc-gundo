@@ -1,0 +1,3 @@
+"BEGIN_GUNDO
+nnoremap <leader>u :GundoToggle<CR>
+"END_GUNDO

@@ -14,33 +14,46 @@ FAILED="${RED}FAILED${RESET}"
 mkdir -p $TEMPDIR
 
 function storetobackup {
-    echo "Backing up $1 to $TMPDIR"
-    rm -rf $TMPDIR/$1
+        echo "Backing up $1 to $TMPDIR"
+        rm -rf $TMPDIR/$1
 
-    if mv "$1" $TMPDIR
-    then
+        if mv "$1" $TMPDIR
+        then
             echo "$DONE"
-    else
+        else
             echo "${YELLOW}No file found for backup${RESET}"
-    fi
+        fi
 }
 
 function restorefrombackup {
-    echo "Trying to restore $TMPDIR/$1 to $2"
-    if mv "$TMPDIR/$1" $2
-    then
+        echo "Trying to restore $TMPDIR/$1 to $2"
+        if mv "$TMPDIR/$1" $2
+        then
             echo "$DONE"
-    else
+        else
             echo "${YELLOW}No backup found${RESET}"
-    fi
+        fi
 }
     
 function checkinstall {
-    if [ -d "$1" ];
-    then
+        if [ -d "$1" ];
+        then
             echo "$1 already exists. Do you want to get the latest [y/n]?"
             read -n 1 YESNO 
-    else
+        else
             YESNO="y"
-    fi
+        fi
+}
+
+function appendfiles {
+        FILES="$1"
+        echo "Appending all $2/$FILES to $VIMRCDST"
+        pushd $2 &>/dev/null
+        for f in $FILES
+        do
+            echo "Copying $f to $VIMRCDST"
+            cat $f 1>>$VIMRCDST
+            echo $DONE 
+        done
+        popd &>/dev/null
 }

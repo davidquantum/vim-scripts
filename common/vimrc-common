@@ -30,7 +30,6 @@ set showmatch
 set smartindent
 set fileencodings=utf-8
 
-nnoremap <leader>u :GundoToggle<CR>
 nnoremap <leader>n :nohlsearch<CR>
 
 noremap _ VXkP
@@ -38,7 +37,9 @@ noremap - VXp
 inoremap <c-d> <Esc>ddi
 inoremap jj <Esc>
 
+"Delete line until end
 nnoremap <c-l> v$hd
+"Delete line from beginning
 nnoremap <c-h> v$0d
 
 "Have Vim jump to the last position when reopening a file
