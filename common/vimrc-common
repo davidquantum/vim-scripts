@@ -30,6 +30,10 @@ set showmatch
 set smartindent
 set fileencodings=utf-8
 
+" Close buffer without messing up NerdTree
+nnoremap <leader>q :bp<cr>:bd #<cr>
+
+" Clear the highlight of search
 nnoremap <leader>n :nohlsearch<CR>
 
 noremap _ VXkP

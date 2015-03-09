@@ -1,0 +1,5 @@
+"BEGIN_NERDTREE
+autocmd vimenter * NERDTree
+map <c-n> :NERDTreeToggle<CR>
+
+"END_NERDTREE
