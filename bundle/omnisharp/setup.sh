@@ -9,10 +9,13 @@ checkinstall "omnisharp-vim"
 if [ -z $YESNO ] || [ $YESNO == "y" ]; then
         storetobackup omnisharp-vim
         git clone https://github.com/OmniSharp/omnisharp-vim.git
-        cd omnisharp-vim
+        pushd omnisharp-vim &>/dev/null
         git submodule update --init --recursive
-        cd server
+        pushd server &>/dev/null
         xbuild
+        popd &>/dev/null
+        popd &>/dev/null
+
         echo "$DONE"
 
         appendfiles "vimrc-*" $DIR
