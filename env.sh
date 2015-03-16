@@ -11,7 +11,7 @@ RESET=`tput sgr0`
 DONE="${GREEN}DONE${RESET}"
 FAILED="${RED}FAILED${RESET}"
 
-mkdir -p $TEMPDIR
+mkdir -p $TMPDIR
 
 function storetobackup {
         echo "Backing up $1 to $TMPDIR"
