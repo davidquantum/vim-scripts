@@ -38,6 +38,7 @@ else
                 ./bundle/dispatch/setup.sh
         fi
 
+        ./bundle/ctrlp/setup.sh
         ./bundle/gundo/setup.sh
         ./bundle/nerdtree/setup.sh
         ./bundle/airline/setup.sh
