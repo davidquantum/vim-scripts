@@ -32,12 +32,6 @@ set completeopt=longest,menuone,preview
 "You might also want to look at the echodoc plugin
 set splitbelow
 
-" Get Code Issues and syntax errors
-let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
-" If you are using the omnisharp-roslyn backend, use the following
-"
-" let g:syntastic_cs_checkers = ['code_checker']
-
 augroup omnisharp_commands
         autocmd!
 
@@ -50,7 +44,7 @@ augroup omnisharp_commands
         autocmd FileType cs nnoremap <leader>b :wa!<cr>:OmniSharpBuildAsync<cr>
         "
         " automatic syntax check on events (TextChanged requires Vim 7.4)
-        autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
+        " autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
 
         " Automatically add new cs files to the nearest project on save
         autocmd BufWritePost *.cs call OmniSharp#AddToProject()

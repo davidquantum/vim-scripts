@@ -9,6 +9,7 @@ then
         echo "Allowed arguments are:"
         echo "--help    -  shows this screen"
         echo "--csharp  -  in addition to basic packages adds also C# and Omnisharp support"
+        echo "--roslyn  -  use with --csharp to use roslyn version of Omnisharp."
         echo "--clean   -  only cleans all existing packages from .vim and .vimrc"
         exit 0
 else
@@ -33,7 +34,7 @@ else
 
         if [ "$1" == "--csharp" ]; then
 
-                ./bundle/omnisharp/setup.sh
+                ./bundle/omnisharp/setup.sh $2
                 ./bundle/vim-csharp/setup.sh
                 ./bundle/dispatch/setup.sh
         fi

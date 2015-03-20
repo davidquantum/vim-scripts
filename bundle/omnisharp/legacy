@@ -1,0 +1,4 @@
+"BEGIN_OMNISHARP_LEGACY
+" Get Code Issues and syntax errors
+let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
+"END_OMNISHARP_LEGACY
