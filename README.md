@@ -22,6 +22,10 @@ to set up [omnisharp-server] version or
 ```
 to set up [omnisharp-roslyn] version. 
 
+**Caution:** The script will overwrite the existing ~/.vimrc file (makes a backup of the existing file to /tmp/tmpvimfiles) and moves the contents of existing .vim/bundle also to /tmp/tmpvimfiles
+
+The scripts are under continues development and will be improved over time.
+
 [vim-pathogen]:https://github.com/tpope/vim-pathogen
 [ctrlp]:https://github.com/kien/ctrlp.vim
 [gundo]:https://github.com/sjl/gundo.vim
@@ -30,6 +34,7 @@ to set up [omnisharp-roslyn] version.
 [on my blog]:http://xplatform-dotnet-dev.blogspot.com/2015/03/caspnet-with-vim-and-omnisharp.html?view=classic
 [omnisharp-server]:https://github.com/OmniSharp/omnisharp-server
 [omnisharp-roslyn]:https://github.com/OmniSharp/omnisharp-roslyn
+[OmniSharp]:http://www.omnisharp.net/
 
 ### Screenshots
 
