@@ -11,12 +11,20 @@ else
         SCHEME=$1
 fi
 
+
+if [ "$(uname)" == "Darwin" ]; then
+        sed -i '' "/END_COMMON/a\\
+        colorscheme $SCHEME\\
+        " $VIMRCDST
+else
+        sed -i "/END_COMMON/a\
+                colorscheme $SCHEME" $VIMRCDST
+
+fi
+
 DEFAULT="setup-$SCHEME.sh"
 ./$DEFAULT
 
 echo "Color scheme setup $DONE"
-sed -i '' "/END_COMMON/a\\
-colorscheme $SCHEME\\
-" $VIMRCDST
 
 popd $DIR &>/dev/null
