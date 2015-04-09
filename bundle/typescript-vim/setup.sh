@@ -1,18 +1,19 @@
 #!/bin/bash
-if [[ "$*" =~ .*\-\-csharp.* ]]
+if [[ "$*" =~ .*\-\-typescript.* ]]
 then
+
         DIR=$( pushd "$( dirname "$0" )" &>/dev/null && pwd && popd &>/dev/null)
         source $DIR/../../env.sh
 
-        echo "Installing vim-csharp"
+        echo "Installing typescript-vim"
         pushd $BUNDLE &>/dev/null
-        checkinstall "vim-csharp"
+        checkinstall "typescript-vim"
         if [ -z $YESNO ] || [ $YESNO == "y" ]; then
-                storetobackup vim-csharp 
-                git clone git://github.com/OrangeT/vim-csharp.git
+                storetobackup typescript-vim
+                git clone https://github.com/leafgarland/typescript-vim
                 echo "$DONE"
-
                 appendfiles "vimrc-*" $DIR
         fi
         popd &>/dev/null
+
 fi

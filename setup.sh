@@ -10,6 +10,7 @@ then
         echo "--help    -  shows this screen"
         echo "--csharp  -  in addition to basic packages adds also C# and Omnisharp support"
         echo "--roslyn  -  use with --csharp to use roslyn version of Omnisharp."
+        echo "--typescript - installs typescript-vim package."
         echo "--clean   -  only cleans all existing packages from .vim and .vimrc"
         exit 0
 else
@@ -32,12 +33,10 @@ else
         ./common/setup.sh
         ./colors/setup.sh
 
-        if [ "$1" == "--csharp" ]; then
-
-                ./bundle/omnisharp/setup.sh $2
-                ./bundle/vim-csharp/setup.sh
-                ./bundle/dispatch/setup.sh
-        fi
+        ./bundle/omnisharp/setup.sh "$@" 
+        ./bundle/vim-csharp/setup.sh "$@"
+        ./bundle/dispatch/setup.sh "$@"
+        ./bundle/typescript-vim/setup.sh "$@"
 
         ./bundle/ctrlp/setup.sh
         ./bundle/gundo/setup.sh
