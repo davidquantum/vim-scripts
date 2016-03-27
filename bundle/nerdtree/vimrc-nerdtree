@@ -1,9 +1,15 @@
 "BEGIN_NERDTREE
+" When :q and only nerdtree is open, quit. 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Same as above.. seems to not work any more 
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 autocmd vimenter * NERDTree
 autocmd vimenter * wincmd p
 map <c-n> :NERDTreeToggle<CR>
 
 let g:NERDTreeWinPos = "right"
+
+
 "END_NERDTREE
